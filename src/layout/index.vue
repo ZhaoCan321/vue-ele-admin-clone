@@ -1,6 +1,6 @@
 <template>
  <div class="wrapper">
- 
+  layout
  </div>
 </template>
 
