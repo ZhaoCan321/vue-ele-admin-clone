@@ -1,5 +1,5 @@
 <template>
-  <div v-if="error.length>0">
+  <div v-if="errorLogs.length > 0">
     <el-badge :is-dot="true" style="line-height:25px;margin-top:-5px;" @click.native="dialogTableVisible=true">
       <el-button style="padding:8px 10px;" size="small" type="danger">
         <svg-icon icon-class="bug" />
@@ -55,14 +55,13 @@ export default {
   },
   computed: {
     errorLogs() {
-      // return this.$store.getters.errorLogs
-      return "no-data"
+      return this.$store.getters.errorLogs
     }
   },
   methods: {
     clearAll() {
       this.dialogTableVisible = false
-      // this.$store.dispatch('errorLog/clearErrorLog')
+      this.$store.dispatch('errorLog/clearErrorLog')
     }
   }
 }

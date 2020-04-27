@@ -1,14 +1,15 @@
 <template>
   <div>
-    <svg-icon :icon-class="isFullscreen?'exit-fullscre':'fillscreen'" @click="click" />
+    <svg-icon :icon-class="isFullscreen?'exit-fullscreen':'fullscreen'" @click="click" />
   </div>
 </template>
 
 <script>
-import screenfull from 'screenfull';
+import screenfull from 'screenfull'
 
 export default {
-  data () {
+  name: 'Screenfull',
+  data() {
     return {
       isFullscreen: false
     }
@@ -21,10 +22,10 @@ export default {
   },
   methods: {
     click() {
-      if(!screenfull.enabled) {
+      if (!screenfull.enabled) {
         this.$message({
-          message: "you browser can not work",
-          type: "warning"
+          message: 'you browser can not work',
+          type: 'warning'
         })
         return false
       }
@@ -34,13 +35,13 @@ export default {
       this.isFullscreen = screenfull.isFullscreen
     },
     init() {
-      if(screenfull.enabled) {
-        screenfull.on("change", this.change)
+      if (screenfull.enabled) {
+        screenfull.on('change', this.change)
       }
     },
     destroy() {
-      if(screenfull.enabled) {
-        screenfull.off("change", this.change)
+      if (screenfull.enabled) {
+        screenfull.off('change', this.change)
       }
     }
   }
@@ -50,10 +51,10 @@ export default {
 <style scoped>
 .screenfull-svg {
   display: inline-block;
+  cursor: pointer;
+  fill: #5a5e66;;
   width: 20px;
   height: 20px;
-  fill: #5a5e66;
   vertical-align: 10px;
-  cursor: pointer;
 }
 </style>

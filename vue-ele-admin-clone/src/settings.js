@@ -9,7 +9,6 @@ module.exports = {
 
   sidebarLogo: false,
 
-  // errorLog: 'production'
-  errorLog: ['production', 'development']
+  errorLog: 'production'
 
 }

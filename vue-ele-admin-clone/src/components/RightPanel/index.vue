@@ -77,9 +77,9 @@ export default {
 
 <style>
 .showRightPanel {
-  overflow: hidden;
   position: relative;
   width: calc(100% - 15px);
+  overflow: hidden;
 }
 </style>
 
