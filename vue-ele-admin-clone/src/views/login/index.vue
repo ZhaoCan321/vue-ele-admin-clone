@@ -270,9 +270,9 @@ $light_gray:#eee;
   }
 
   .tips {
+    margin-bottom: 10px;
     font-size: 14px;
     color: #fff;
-    margin-bottom: 10px;
 
     span {
       &:first-of-type {
