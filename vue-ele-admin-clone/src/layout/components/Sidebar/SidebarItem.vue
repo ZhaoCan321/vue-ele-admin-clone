@@ -1,6 +1,6 @@
 <template>
   <div v-if="!item.hidden">
-    <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
+    <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren) && !item.alwaysShow">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
           <svg-icon v-if="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)" :icon-class="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)"></svg-icon>
@@ -59,6 +59,8 @@ export default {
   },
   methods: {
     hasOneShowingChild(children = [], parent) {
+
+      // 先筛选出所有需要展示的 hidden="false"
       const showingChildren = children.filter(item => {
         if (item.hidden) {
           return false;
@@ -68,7 +70,7 @@ export default {
           return true;
         }
       });
-
+      
       // When there is only one child router, the child router is displayed by default
       if (showingChildren.length === 1) {
         return true;

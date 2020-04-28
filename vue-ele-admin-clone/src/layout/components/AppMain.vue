@@ -1,8 +1,7 @@
 <template>
   <section class="app-main">
     <transition name="fade-transform" mode="out-in">
-      <!-- <keep-alive :include="cacheViews"> -->
-      <keep-alive>
+      <keep-alive :include="cachedViews">
         <!-- 添加key的原因: 强制不复用组件  在beforeRouteUpdate中拉去数据 -->
         <router-view :key="key"></router-view>
       </keep-alive>
@@ -14,9 +13,9 @@
 export default {
   name: "AppMain",
   computed: {
-    // cachedViews() {
-    //   return this.$store.state.tagsView.cachedViews
-    // },
+    cachedViews() {
+      return this.$store.state.tagsView.cachedViews
+    },
     key() {
       return this.$route.path
     }
