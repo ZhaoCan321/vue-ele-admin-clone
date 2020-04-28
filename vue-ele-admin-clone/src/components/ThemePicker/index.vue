@@ -12,7 +12,7 @@ export default {
     }
   },
   created() {
-    this.$emit('change', val)
+    // this.$emit('change', val)
   }
 }
 </script>
