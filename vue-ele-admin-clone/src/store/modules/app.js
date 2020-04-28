@@ -22,7 +22,7 @@ const mutations = {
   CLOSE_SIDEBAR: (state, widthoutAnimation) => {
     Cookies.set("sidebarStatus", 0)
     state.sidebar.opened = false
-    state.sidebar.widthoutAnimation = widthoutAnimation
+    state.sidebar.widthoutAnimation = withoutAnimation
   },
   TOGGLE_DEVICE: (state, device) => {
     state.device = device
@@ -38,7 +38,7 @@ const actions = {
     commit("TOGGLE_SIDEBAR")
   },
   closeSideBar({ commit }, { widthoutAnimation }) {
-    commit('CLOSE_SIDEBAR', widthoutAnimation)    
+    commit('CLOSE_SIDEBAR', withoutAnimation)    
   },
   toggleDevice({ commit }, device) {
     commit('TOGGLE_DEVICE', device)
