@@ -24,7 +24,7 @@ module.exports = {
     }
   },
   configureWebpack: {
-    name: name
+    name: name,
     resolve: {
       extensions: [".js", ".vue"],
       alias: {
