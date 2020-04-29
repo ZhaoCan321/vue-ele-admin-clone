@@ -7,6 +7,19 @@ import Layout from '@/layout'
 
 export const constantRoutes = [
   {
+    path: '/redirect',
+    component: Layout,
+    hidden: true,
+    children: [
+      // 在不刷新页面的情况下，更新页面
+      // 当遇到你需要刷新页面的情况，你就手动重定向页面到 redirect 页面，它会将页面重新 redirect 重定向回来，由于页面的 key 发生了变化，从而间接实现了刷新页面组件的效果。
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index')
+      }
+    ]
+  },
+  {
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
