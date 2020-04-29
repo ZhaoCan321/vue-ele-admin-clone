@@ -12,5 +12,6 @@ router.post('/login', jsonParser, ctrl.getUserToken)
 router.get('/getUserInfo', urlencodedParser, ctrl.getUserInfo)
 router.post('/logout', jsonParser, ctrl.logout)
 router.get('/transaction/list', jsonParser, ctrl.transactionList)
+router.get('/article/list', jsonParser, ctrl.fetchList)
 
 module.exports = router
