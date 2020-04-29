@@ -1,5 +1,5 @@
 const state = {
-  log: []
+  logs: []
 }
 
 const mutations = {

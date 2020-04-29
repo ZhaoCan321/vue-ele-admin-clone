@@ -15,9 +15,9 @@ import store from './store'
 
 import './icons'
 import './permission'
-// import './utils/err-log'
+import './utils/err-log'
 
-// import * as filter from './filters';
+import * as filters from './filters';
 
 // if(process.env.NODE_ENV === "production") {
 //   const { mockXHR } = require("./mock")
@@ -28,9 +28,9 @@ Vue.use(Element, {
   size: Cookies.get('size') || 'medium'
 })
 
-// Object.keys().forEach(key => {
-//   Vue.filter(key, filters[key])
-// })
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
 
 Vue.config.productionTip = false
 
