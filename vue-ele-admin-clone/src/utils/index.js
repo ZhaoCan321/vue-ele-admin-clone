@@ -24,7 +24,7 @@ export function deepClone(source) {
     if(source[keys] && typeof source[keys] === "object") {
       targetObj[keys] = deepClone(source[keys])
     } else {
-      targetObj[keys] = source[keys]
+      targetObj[keys] =source[keys]
     }
   })
   return targetObj

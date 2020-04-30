@@ -1,4 +1,6 @@
 const Mock = require('mockjs')
+const { deepClone } = require('./utils/utils.js');
+const { asyncRoutes, constantRoutes } = require('./utils/routes.js')
 
 // 数据
 const tokens = {
@@ -60,9 +62,44 @@ for (let i = 0; i < count; i++) {
   }))
 }
 
+const routes = deepClone([...constantRoutes, ...asyncRoutes])
+
+const roles = [
+  {
+    key: 'admin',
+    name: 'admin',
+    description: 'Super Administrator. Have access to view all pages.',
+    routes: routes
+  },
+  {
+    key: 'editor',
+    name: 'editor',
+    description: 'Normal Editor. Can see all pages except permission page',
+    routes: routes.filter(i => i.path !== '/permission')// just a mock
+  },
+  {
+    key: 'visitor',
+    name: 'visitor',
+    description: 'Just a visitor. Can only see the home page and the document page',
+    routes: [{
+      path: '',
+      redirect: 'dashboard',
+      children: [
+        {
+          path: 'dashboard',
+          name: 'Dashboard',
+          meta: { title: 'dashboard', icon: 'dashboard' }
+        }
+      ]
+    }]
+  }
+]
+
 //接口函数
 module.exports = {
   testAPI: (req, res) => {
+    console.log(req);
+    
     res.send("请求后台API成功")
   },
   getUserToken: (req, res) => {
@@ -114,5 +151,41 @@ module.exports = {
         items: pageList
       }
     })
+  },
+  routes: (req, res) => {
+    res.send({
+      code: 200,
+      data: routes
+    })
+  },
+  roles: (req, res) => {
+    res.send({
+      code: 200,
+      data: roles
+    })
+  },
+  role: (req, res) => {
+    if(req.method === "POST") {
+      res.send({
+        code: 200,
+        data: {
+          mag: "add success"
+        }
+      })
+    } else if(req.method === "PUT") {
+      res.send({
+        code: 200,
+        data: {
+          mag: "update success"
+        }
+      })
+    } else if(req.method === "DELETE") {
+      res.send({
+        code: 200,
+        data: {
+          mag: "delete success"
+        }
+      })
+    }
   }
 }
