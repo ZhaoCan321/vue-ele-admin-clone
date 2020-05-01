@@ -22,7 +22,6 @@ export default {
         return this.roles[0]
       },
       set(val) {
-        // editor还没有
         this.$store.dispatch('user/changeRoles', val).then(() => {
           this.$emit('change')
         })

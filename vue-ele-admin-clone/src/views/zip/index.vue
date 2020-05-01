@@ -61,7 +61,7 @@ export default {
     return {
       list: null,
       listLoading: true,
-      downloadingLoading: false,
+      downloadLoading: false,
       filename: ""
     };
   },

@@ -14,7 +14,9 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
   return modules;
 }, {})
 
-const debug = process.env.NODE_ENV !== 'production' // 只在开发环境时启动严格模式
+// 只在开发环境时启动严格模式  
+// 为什么添加之后反应会很慢
+const debug = process.env.NODE_ENV === 'production' 
 
 export default new Vuex.Store({
   modules,

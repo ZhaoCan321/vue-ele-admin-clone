@@ -20,7 +20,7 @@ const mutations = {
 }
 
 const actions = {
-  changeSettings({ commit }, data) {
+  changeSetting({ commit }, data) {
     commit("CHANGE_SETTING", data)
   }
 }

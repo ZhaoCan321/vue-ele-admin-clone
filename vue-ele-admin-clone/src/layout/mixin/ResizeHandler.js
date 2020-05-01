@@ -3,7 +3,7 @@ import store from '@/store'
 const { body } = document
 const WIDTH = 992 // refer to Bootstrap's responsive design
 
-export default {
+export const ResizeHandler = {
   watch: {
     $route(route) {
       if (this.device === 'mobile' && this.sidebar.opened) {

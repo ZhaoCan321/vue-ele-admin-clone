@@ -5,6 +5,8 @@ Vue.use(Router)
 
 import Layout from '@/layout'
 
+import componentsRouter from './modules/components'
+
 export const constantRoutes = [
   {
     path: '/redirect',
@@ -94,6 +96,7 @@ export const constantRoutes = [
 ]
 
 export const asyncRoutes = [
+  componentsRouter,
   {
     path: '/permission',
     component: Layout,
@@ -160,6 +163,18 @@ export const asyncRoutes = [
         component: () => import("@/views/zip/index"),
         name: "ExportZip",
         meta: { title: "Export Zip" }
+      }
+    ]
+  },
+  {
+    path: '/clipboard',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/clipboard/index'),
+        name: 'ClipboardDemo',
+        meta: { title: 'Clipboard', icon: 'clipboard' }
       }
     ]
   },

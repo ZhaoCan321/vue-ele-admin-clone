@@ -124,6 +124,7 @@ export default {
         const data = {
           path: path.resolve(basePath, route.path),
           title: route.meta && route.meta.title
+
         }
 
         // recursive child routes
